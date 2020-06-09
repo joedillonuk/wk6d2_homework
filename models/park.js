@@ -53,4 +53,34 @@ Park.prototype.yearlyRevenue = function () {
   return revenue;
 };
 
+Park.prototype.removeDinosaurBySpecies = function (species) {
+  result_array = [];
+  for(dino of this.dinosaurs){
+    if(dino.species != species){
+      result_array.push(dino);
+    }
+  }
+  this.dinosaurs = result_array;
+};
+
+Park.prototype.dinosaursDiet = function () {
+  let diet = {
+    carnivore: 0,
+    herbivore: 0,
+    omnivore: 0
+  }
+for(dino of this.dinosaurs){
+  if(dino.diet == "carnivore"){
+    diet.carnivore += 1;
+  } else if(dino.diet == "herbivore"){
+    diet.herbivore += 1;
+  } else if(dino.diet == "omnivore") {
+    diet.omnivore += 1;
+  }
+
+}
+  return diet;
+};
+
+
 module.exports = Park;
